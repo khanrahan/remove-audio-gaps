@@ -12,7 +12,7 @@ Update Date: 1.10.24
 
 Description:
 
-    Remove gaps on the audio tracks.
+    Remove silent gaps on the audio tracks.
 
 Menus:
 
@@ -46,7 +46,7 @@ def message(string):
 
 
 def remove_audio_gaps(sequence):
-    '''Loop through all the audio tracks and remove any audio gaps.'''
+    '''Loop through all the audio tracks and remove any silent audio gaps.'''
 
     for audio_track in sequence.audio_tracks:
         for track in audio_track.channels:
@@ -56,7 +56,7 @@ def remove_audio_gaps(sequence):
 
 
 def process_selection(selection):
-    ''' '''
+    '''Loop through selection of sequences.'''
 
     message(TITLE_VERSION)
     message('Script called from {}'.format(__file__))
