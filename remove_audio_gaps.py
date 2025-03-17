@@ -35,7 +35,7 @@ import flame
 TITLE = 'Remove Audio Gaps'
 VERSION_INFO = (1, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
-TITLE_VERSION = '{} v{}'.format(TITLE, VERSION)
+TITLE_VERSION = f'{TITLE} v{VERSION}'
 MESSAGE_PREFIX = '[PYTHON]'
 
 
@@ -56,7 +56,7 @@ def remove_audio_gaps(sequence):
 def process_selection(selection):
     """Loop through selection of sequences."""
     message(TITLE_VERSION)
-    message('Script called from {}'.format(__file__))
+    message(f'Script called from {__file__}')
 
     for sequence in selection:
         remove_audio_gaps(sequence)
