@@ -64,10 +64,7 @@ def process_selection(selection):
 
 def scope_sequence(selection):
     """Filter for only PySequence."""
-    for item in selection:
-        if isinstance(item, flame.PySequence):
-            return True
-    return False
+    return all(isinstance(item, flame.PySequence) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
