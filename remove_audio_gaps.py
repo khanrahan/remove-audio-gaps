@@ -73,5 +73,5 @@ def get_media_panel_custom_ui_actions():
              'actions': [{'name': 'Remove Audio Gaps',
                           'isVisible': scope_sequence,
                           'execute': process_selection,
-                          'minimumVersion': '2021.1'}]
+                          'minimumVersion': '2022.0.0.0'}]
             }]
