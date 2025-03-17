@@ -30,7 +30,6 @@ To Install:
 
 import flame
 
-
 TITLE = 'Remove Audio Gaps'
 VERSION_INFO = (1, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
