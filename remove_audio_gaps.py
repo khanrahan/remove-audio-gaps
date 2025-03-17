@@ -41,13 +41,11 @@ MESSAGE_PREFIX = '[PYTHON]'
 
 def message(string):
     """Print message to shell window and append global MESSAGE_PREFIX."""
-
     print(' '.join([MESSAGE_PREFIX, string]))
 
 
 def remove_audio_gaps(sequence):
     """Loop through all the audio tracks and remove any silent audio gaps."""
-
     for audio_track in sequence.audio_tracks:
         for track in audio_track.channels:
             for item in track.segments:
@@ -57,7 +55,6 @@ def remove_audio_gaps(sequence):
 
 def process_selection(selection):
     """Loop through selection of sequences."""
-
     message(TITLE_VERSION)
     message('Script called from {}'.format(__file__))
 
@@ -69,7 +66,6 @@ def process_selection(selection):
 
 def scope_sequence(selection):
     """Filter for only PySequence."""
-
     for item in selection:
         if isinstance(item, flame.PySequence):
             return True
@@ -78,7 +74,6 @@ def scope_sequence(selection):
 
 def get_media_panel_custom_ui_actions():
     """Python hook to add custom right click menu."""
-
     return [{'name': 'Edit...',
              'actions': [{'name': 'Remove Audio Gaps',
                           'isVisible': scope_sequence,
