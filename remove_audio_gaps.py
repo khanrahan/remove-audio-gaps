@@ -1,14 +1,14 @@
-'''
+"""
 Script Name: Remove Audio Gaps
 Written By: Kieran Hanrahan
 
-Script Version: 1.0.0
-Flame Version: 2021.1
+Script Version: 2.0.0
+Flame Version: 2022
 
 URL: http://github.com/khanrahan/remove-audio-gaps
 
 Creation Date: 01.10.24
-Update Date: 01.10.24
+Update Date: 03.17.25
 
 Description:
 
@@ -22,32 +22,31 @@ Menus:
 To Install:
 
     For all users, copy this file to:
-    /opt/Autodesk/shared/python
+    /opt/Autodesk/shared/python/
 
-    For a specific user, copy this file to:
-    /opt/Autodesk/user/<user name>/python
-'''
+    For a specific user on Linux, copy this file to:
+    /home/<user_name>/flame/python/
 
-from __future__ import print_function
+    For a specific user on Mac, copy this file to:
+    /Users/<user_name>/Library/Preferences/Autodesk/flame/python/
+"""
+
 import flame
 
-
 TITLE = 'Remove Audio Gaps'
-VERSION_INFO = (1, 0, 0)
+VERSION_INFO = (2, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
-TITLE_VERSION = '{} v{}'.format(TITLE, VERSION)
+TITLE_VERSION = f'{TITLE} v{VERSION}'
 MESSAGE_PREFIX = '[PYTHON]'
 
 
 def message(string):
-    '''Print message to shell window and append global MESSAGE_PREFIX.'''
-
+    """Print message to shell window and append global MESSAGE_PREFIX."""
     print(' '.join([MESSAGE_PREFIX, string]))
 
 
 def remove_audio_gaps(sequence):
-    '''Loop through all the audio tracks and remove any silent audio gaps.'''
-
+    """Loop through all the audio tracks and remove any silent audio gaps."""
     for audio_track in sequence.audio_tracks:
         for track in audio_track.channels:
             for item in track.segments:
@@ -56,10 +55,9 @@ def remove_audio_gaps(sequence):
 
 
 def process_selection(selection):
-    '''Loop through selection of sequences.'''
-
+    """Loop through selection of sequences."""
     message(TITLE_VERSION)
-    message('Script called from {}'.format(__file__))
+    message(f'Script called from {__file__}')
 
     for sequence in selection:
         remove_audio_gaps(sequence)
@@ -68,20 +66,15 @@ def process_selection(selection):
 
 
 def scope_sequence(selection):
-    '''Filter for only PySequence.'''
-
-    for item in selection:
-        if isinstance(item, flame.PySequence):
-            return True
-    return False
+    """Filter for only PySequence."""
+    return all(isinstance(item, flame.PySequence) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
-    '''Python hook to add custom right click menu.'''
-
+    """Python hook to add custom right click menu."""
     return [{'name': 'Edit...',
              'actions': [{'name': 'Remove Audio Gaps',
                           'isVisible': scope_sequence,
                           'execute': process_selection,
-                          'minimumVersion': '2021.1'}]
+                          'minimumVersion': '2022.0.0.0'}]
             }]
