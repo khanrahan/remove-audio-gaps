@@ -2,8 +2,8 @@
 Script Name: Remove Audio Gaps
 Written By: Kieran Hanrahan
 
-Script Version: 1.0.0
-Flame Version: 2021.1
+Script Version: 2.0.0
+Flame Version: 2022
 
 URL: http://github.com/khanrahan/remove-audio-gaps
 
@@ -31,7 +31,7 @@ To Install:
 import flame
 
 TITLE = 'Remove Audio Gaps'
-VERSION_INFO = (1, 0, 0)
+VERSION_INFO = (2, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = f'{TITLE} v{VERSION}'
 MESSAGE_PREFIX = '[PYTHON]'
