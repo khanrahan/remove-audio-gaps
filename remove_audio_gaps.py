@@ -8,7 +8,7 @@ Flame Version: 2022
 URL: http://github.com/khanrahan/remove-audio-gaps
 
 Creation Date: 01.10.24
-Update Date: 01.10.24
+Update Date: 03.17.25
 
 Description:
 
